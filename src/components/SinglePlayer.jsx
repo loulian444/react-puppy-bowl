@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const SinglePlayer = ({ apiUrl, id }) => {
   const [playerInfo, setPlayerInfo] = useState(0);
@@ -32,7 +33,8 @@ const SinglePlayer = ({ apiUrl, id }) => {
         </>
       ) : "Loading..."
       }
-      
+
+      <Link to={"/"}>Home</Link>
     </>
   );
 }
