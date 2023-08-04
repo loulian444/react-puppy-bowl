@@ -1,5 +1,9 @@
-img {
+.thumbnail {
   width: 200px;
+}
+
+img {
+  width: 400px;
 }
 
 #playersSection {
@@ -24,4 +28,8 @@ img {
 
 button {
   height: 20px;
+}
+
+#playerHeader {
+  font-size: xx-large;
 }
