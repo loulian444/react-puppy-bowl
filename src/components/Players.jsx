@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Grid from "@mui/material/Grid";
+import { Link } from "react-router-dom";
 
 const Players = ({ apiUrl, players, setPlayers, clickDetailHandler }) => {
   useEffect(() => {
@@ -26,7 +27,8 @@ const Players = ({ apiUrl, players, setPlayers, clickDetailHandler }) => {
               <section className="playerSection flex">
                 <section id={player.id} className="detailButtonSection flex">
                   <p>{player.name}</p>
-                  <button onClick={clickDetailHandler}>Details</button>
+                  {/* <button onClick={clickDetailHandler}>Details</button> */}
+                  <Link to={`/player/${player.id}`} onClick={clickDetailHandler}>Details</Link>
                 </section>
                 <img className="thumbnail" src={player.imageUrl} />
               </section>

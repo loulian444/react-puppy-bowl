@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Players from "./components/Players.jsx";
 import SinglePlayer from "./components/SinglePlayer";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const apiUrl =
@@ -14,21 +15,33 @@ function App() {
     setId(event.target.parentNode.id);
   };
 
-  
-
   return (
     <>
       <h1>Puppy Bowl</h1>
-      {
-      !id ? 
-      <Players
-      apiUrl={apiUrl}
-      players={players}
-      setPlayers={setPlayers}
-      clickDetailHandler={clickDetailHandler}
-      /> : <SinglePlayer apiUrl={apiUrl} id={id} />
-      }
-      
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Players
+              apiUrl={apiUrl}
+              players={players}
+              setPlayers={setPlayers}
+              clickDetailHandler={clickDetailHandler}
+            />
+          }
+        />
+        <Route path="/player/:id" element={<SinglePlayer apiUrl={apiUrl} id={id} />} />
+      </Routes>
+      {/* {!id ? (
+        <Players
+          apiUrl={apiUrl}
+          players={players}
+          setPlayers={setPlayers}
+          clickDetailHandler={clickDetailHandler}
+        />
+      ) : (
+        <SinglePlayer apiUrl={apiUrl} id={id} />
+      )} */}
     </>
   );
 }
