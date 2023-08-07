@@ -1,5 +1,11 @@
+body {
+  background-color: bisque;
+}
+
 .thumbnail {
-  width: 200px;
+  width: 80%;
+  height: 300px;
+  object-fit: contain;
 }
 
 img {
@@ -18,12 +24,18 @@ img {
 .playerSection {
   flex-direction: column;
   align-items: center;
+  border: solid 3px;
+  height: 375px;
+  max-width: 250px;
+  background-color: burlywood;
 }
 
 .detailButtonSection {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  background-color: aliceblue;
+  border-bottom: solid 3px;
 }
 
 button {
