@@ -19,8 +19,6 @@ const SinglePlayer = ({ apiUrl }) => {
     }
   }, []);
 
-  console.log(playerInfo)
-
   return (
     <>
       {

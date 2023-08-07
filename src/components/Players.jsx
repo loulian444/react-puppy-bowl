@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 
-const Players = ({ apiUrl, players, setPlayers }) => {
+const Players = ({ apiUrl }) => {
+  const [players, setPlayers] = useState([]);
+
   useEffect(() => {
     try {
       const fetchPuppies = async () => {
