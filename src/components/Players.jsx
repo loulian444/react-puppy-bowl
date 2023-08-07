@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Players = ({ apiUrl }) => {
   const [players, setPlayers] = useState([]);
 
-  console.log(players[0])
+  console.log(players)
   useEffect(() => {
     try {
       const fetchPuppies = async () => {

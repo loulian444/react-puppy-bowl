@@ -1,8 +1,41 @@
-const Form = () => {
+import { useEffect, useState } from "react";
+
+const Form = ({ apiUrl }) => {
+  const [newPuppy, setNewPuppy] = useState(null);
+
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(`hello`);
-  }
+
+    const submittedPuppy = {
+      name: event.target.name.value,
+      breed: event.target.breed.value,
+      imageUrl: event.target.image.value,
+      status: event.target.status.value,
+    };
+
+    setNewPuppy(submittedPuppy);
+  };
+
+  useEffect(() => {
+    const addPuppy = async () => {
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newPuppy),
+        });
+        const result = await response.json();
+
+        console.log(result);
+      } catch (error) {
+        alert(error);
+      }
+    };
+
+    newPuppy ? addPuppy() : null;
+  }, [newPuppy]);
 
   return (
     <>
@@ -17,7 +50,7 @@ const Form = () => {
         </label>
         <br />
         <label>
-          Image: <input type="url" name="image" />
+          Image: <input type="text" name="image" />
         </label>
         <br />
         <label>
