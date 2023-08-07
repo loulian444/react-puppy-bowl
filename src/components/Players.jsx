@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 
-const Players = ({ apiUrl, players, setPlayers, clickDetailHandler }) => {
+const Players = ({ apiUrl, players, setPlayers }) => {
   useEffect(() => {
     try {
       const fetchPuppies = async () => {
@@ -28,12 +28,7 @@ const Players = ({ apiUrl, players, setPlayers, clickDetailHandler }) => {
                 <section id={player.id} className="detailButtonSection flex">
                   <p>{player.name}</p>
                   <button>
-                    <Link
-                      to={`/player/${player.id}`}
-                      onClick={clickDetailHandler}
-                    >
-                      Details
-                    </Link>
+                    <Link to={`/player/${player.id}`}>Details</Link>
                   </button>
                 </section>
                 <img className="thumbnail" src={player.imageUrl} />
