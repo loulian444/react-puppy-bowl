@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const SinglePlayer = ({ apiUrl, id }) => {
+const SinglePlayer = ({ apiUrl }) => {
   const [playerInfo, setPlayerInfo] = useState(0);
+  const { id } = useParams();
 
   useEffect(() => {
     try {
@@ -34,7 +35,9 @@ const SinglePlayer = ({ apiUrl, id }) => {
       ) : "Loading..."
       }
 
-      <Link to={"/"}>Home</Link>
+      <button>
+        <Link to={"/"}>Home</Link>
+      </button>
     </>
   );
 }

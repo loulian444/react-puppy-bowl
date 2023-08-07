@@ -30,7 +30,7 @@ function App() {
             />
           }
         />
-        <Route path="/player/:id" element={<SinglePlayer apiUrl={apiUrl} id={id} />} />
+        <Route path="/player/:id" element={<SinglePlayer apiUrl={apiUrl} />} />
       </Routes>
       {/* {!id ? (
         <Players
