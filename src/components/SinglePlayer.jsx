@@ -36,6 +36,14 @@ const SinglePlayer = ({ apiUrl }) => {
       <button>
         <Link to={"/"}>Home</Link>
       </button>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <button>Delete</button>
     </>
   );
 }
