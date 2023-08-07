@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Form from "./Form.jsx";
 
 const Players = ({ apiUrl, changesHappened, setChangesHappened }) => {
   const [players, setPlayers] = useState([]);
+
+  const navigate = useNavigate();
 
   const [showForm, setShowForm] = useState(false);
 
@@ -23,6 +25,7 @@ const Players = ({ apiUrl, changesHappened, setChangesHappened }) => {
       alert(error);
     }
   }, [changesHappened]);
+
 
   const clickHandler = () => {
     showForm ? setShowForm(false) : setShowForm(true);
@@ -43,8 +46,8 @@ const Players = ({ apiUrl, changesHappened, setChangesHappened }) => {
                 <section className="playerSection flex">
                   <section id={player.id} className="detailButtonSection flex">
                     <p>{player.name}</p>
-                    <button>
-                      <Link to={`/player/${player.id}`}>Details</Link>
+                    <button onClick={() => navigate(`/player/${player.id}`)}>
+                      Details
                     </button>
                   </section>
                   <img className="thumbnail" src={player.imageUrl} />

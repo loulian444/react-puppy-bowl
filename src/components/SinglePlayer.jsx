@@ -1,9 +1,10 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SinglePlayer = ({ apiUrl, setChangesHappened }) => {
   const [playerInfo, setPlayerInfo] = useState(null);
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -31,6 +32,8 @@ const SinglePlayer = ({ apiUrl, setChangesHappened }) => {
         console.log(data);
 
         setChangesHappened(true);
+
+        navigate("/");
       } catch (error) {
         alert(error);
       }
@@ -62,8 +65,8 @@ const SinglePlayer = ({ apiUrl, setChangesHappened }) => {
         "Loading..."
       )}
 
-      <button>
-        <Link to={"/"}>Home</Link>
+      <button onClick={() => navigate("/")}>
+        Home
       </button>
 
       <br />
@@ -73,7 +76,7 @@ const SinglePlayer = ({ apiUrl, setChangesHappened }) => {
       <br />
 
       <Button variant="contained" color="error" onClick={deleteHandler}>
-        <Link to={"/"}>Delete</Link>
+        Delete
       </Button>
     </>
   );
