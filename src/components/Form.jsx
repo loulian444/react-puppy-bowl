@@ -1,11 +1,12 @@
+// import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Form = ({ apiUrl }) => {
+const Form = ({ apiUrl, setChangesHappened }) => {
   const [newPuppy, setNewPuppy] = useState(null);
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     const submittedPuppy = {
       name: event.target.name.value,
       breed: event.target.breed.value,
@@ -14,6 +15,9 @@ const Form = ({ apiUrl }) => {
     };
 
     setNewPuppy(submittedPuppy);
+    setChangesHappened(true);
+
+    event.target.reset();
   };
 
   useEffect(() => {
@@ -26,9 +30,9 @@ const Form = ({ apiUrl }) => {
           },
           body: JSON.stringify(newPuppy),
         });
-        const result = await response.json();
+        const data = await response.json();
 
-        console.log(result);
+        console.log(data);
       } catch (error) {
         alert(error);
       }
@@ -69,6 +73,7 @@ const Form = ({ apiUrl }) => {
         </label>
         <br />
         <button>Submit</button>
+        {/* mui button dont work for submit? */}
       </form>
     </>
   );

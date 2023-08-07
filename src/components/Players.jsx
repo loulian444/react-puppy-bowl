@@ -3,8 +3,10 @@ import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import Form from "./Form.jsx";
 
-const Players = ({ apiUrl }) => {
+const Players = ({ apiUrl, changesHappened, setChangesHappened }) => {
   const [players, setPlayers] = useState([]);
+
+  console.log(changesHappened);
 
   console.log(players);
   useEffect(() => {
@@ -20,11 +22,11 @@ const Players = ({ apiUrl }) => {
     } catch (error) {
       alert(error);
     }
-  }, []);
+  }, [changesHappened]);
 
   return (
     <>
-      <Form apiUrl={apiUrl} />
+      <Form apiUrl={apiUrl} setChangesHappened={setChangesHappened} />
 
       <section id="playersSection">
         <Grid container spacing={2}>
