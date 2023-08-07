@@ -6,9 +6,8 @@ import Form from "./Form.jsx";
 const Players = ({ apiUrl, changesHappened, setChangesHappened }) => {
   const [players, setPlayers] = useState([]);
 
-  console.log(changesHappened);
+  const [showForm, setShowForm] = useState(false);
 
-  console.log(players);
   useEffect(() => {
     try {
       const fetchPuppies = async () => {
@@ -19,14 +18,22 @@ const Players = ({ apiUrl, changesHappened, setChangesHappened }) => {
       };
 
       fetchPuppies();
+      setShowForm(false);
     } catch (error) {
       alert(error);
     }
   }, [changesHappened]);
 
+  const clickHandler = () => {
+    showForm ? setShowForm(false) : setShowForm(true);
+  };
+
   return (
     <>
-      <Form apiUrl={apiUrl} setChangesHappened={setChangesHappened} />
+      <button onClick={clickHandler}>Add New Puppy</button>
+      {showForm ? (
+        <Form apiUrl={apiUrl} setChangesHappened={setChangesHappened} />
+      ) : null}
 
       <section id="playersSection">
         <Grid container spacing={2}>

@@ -43,7 +43,6 @@ const Form = ({ apiUrl, setChangesHappened }) => {
 
   return (
     <>
-      <h1>Form</h1>
       <form onSubmit={submitHandler}>
         <label>
           Name: <input type="text" name="name" />

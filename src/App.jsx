@@ -1,10 +1,13 @@
 import Router from "./components/Router.jsx";
 import "./App.css";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <h1>Puppy Bowl</h1>
+      <Link id="bigHeader" to={"/"}>Puppy Bowl</Link>
+      <br />
+      <br />
       <Router />
     </>
   );
